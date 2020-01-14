@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<style>
+.container{
+	width: 400px;
+	height: 400px;
+	background: red;
+	margin: auto;
+	border-radius: 210px;
+}
+.arrow{
+	width: 30px;
+    height: 175px;
+    position: absolute;
+    top: 252px;
+    left: 755px;
+
+}
+.start, .stop{
+	margin: auto;
+	display: inline-block;
+	margin-left: 440px;
+	cursor: pointer;
+	vertical-align: top;
+	transition: all, 1s
+}
+
+.start{
+	width: 90px;
+	height: 90px;
+}
+.stop{
+	width: 87px;
+	height: 95px;
+	
+}
+
+.start:hover{
+	transform: scale(2);
+}
+
+.stop:hover{
+	transform: scale(2);
+}
+
+
+.box-prize{
+	width: 400px;
+    height: 110px;
+    position: absolute;
+    top: 40px;
+    left: 560px;
+    font-size: 60px;
+    text-align: center;
+    line-height: 100px;
+    border: 2px solid black;
+    border-radius: 10px;
+ }
+
+.container-sector{
+	width: 500px;
+    height: 210px;
+    margin: auto;
+}
+
+
+</style>
+
+<div class="container-sector"></div>
+	
+<div class="container">
+	<div class="circle"></div>
+	<img src="unnamed.png" width="100%" height="100%">
+</div>
+	<div class="arrow">
+		<img src="стрелка.png" width="100%" height="100%">
+	</div>
+	<div class="start">
+		<img src="старт.png" width="100%" height="100%">
+	</div>
+	<div class="stop">
+		<img src="стоп.png" width="100%" height="100%">
+	</div>
+
+<script>
+	var containerSector = document.querySelector(".container-sector")
+	var container = document.querySelector(".container");
+	var start = document.querySelector(".start");
+	var stop = document.querySelector(".stop")
+	var circle = document.querySelector(".circle")
+	var number = 0
+	var kok = true
+	var random = Math.floor(Math.random() * 10000)
+	console.log(random)
+
+function create(){
+	window.sector = document.createElement("div")
+	sector.classList.add("box-prize")
+	containerSector.appendChild(sector)
+	console.log(sector)
+}
+
+start.onclick = function(){
+	
+	function go(){
+		number++
+		container.style.transform = "rotateZ" + "(" + number + "deg)"
+		if(number > 360){
+			number = 0
+	}
+		containerSector.innerHTML = " "
+	}
+		console.log(number)
+	window.pop = setInterval(go, 1)
+		/*start.onclick = null*/
+}
+
+
+/*start.addEventListener("click", function(){
+	function go(){
+		number++
+		container.style.transform = "rotateZ" + "(" + number * random + "deg)"
+		}
+	window.pop = setInterval(go, 1)
+})*/		
+			
+stop.addEventListener("click", function(){
+	/*console.log(number)*/
+	function stopTwo(){
+
+	if(number >= 0 && number <= 22){
+		create()
+		sector.innerHTML = "450 Очков"
+	} else if(number >= 23 && number <= 45){
+		create()
+		sector.innerHTML = "100 Очков"
+	} else if(number >= 46 && number <= 68){
+		create()
+		sector.innerHTML = "200 Очков"
+	} else if (number >= 69 && number <= 90){
+		create()
+		sector.innerHTML = "0 Очков"
+	} else if (number >= 91 && number <= 113){
+		create()
+		sector.innerHTML = "300 Очков"
+	} else if (number >= 114 && number <= 135){
+		create()
+		sector.innerHTML = "Банкрот"
+	} else if(number >= 136 && number <= 158){
+		create()
+		sector.innerHTML = "50 Очков"
+	} else if(number >= 159 && number <= 180){
+		create()
+		sector.innerHTML = "Сектор +"
+	} else if(number >= 181 && number <= 203){
+		create()
+		sector.innerHTML = "250 Очков"
+	} else if(number >= 204 && number <= 226){
+		create()
+		sector.innerHTML = "350 Очков"
+	} else if(number >= 227 && number <= 248){
+		create()
+		sector.innerHTML = "500 Очков"
+	} else if(number >= 247 && number <= 271){
+		create()
+		sector.innerHTML = "Х2"
+	} else if(number >= 272 && number <= 293){
+		create()
+		sector.innerHTML = "150 Очков"
+	} else if(number >= 294 && number <= 316){
+		create()
+		sector.innerHTML = "Приз"
+	} else if(number >= 317 && number <= 338){
+		create()
+		sector.innerHTML = "?"
+	} else if(number >= 339 && number <= 360){
+		create()
+		sector.innerHTML = "400 Очков"
+	}
+	clearInterval(pop)
+	}
+	setTimeout(stopTwo, random)
+
+})	
+		
+
+//пропеллер js
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
